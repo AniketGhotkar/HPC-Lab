@@ -3,7 +3,7 @@
 
 int main()
 {
-#pragma omp parallel
-printf("Hii world\n");
-return 0;
+    #pragma omp parallel
+    printf("Hii world\n");
+    return 0;
 }
