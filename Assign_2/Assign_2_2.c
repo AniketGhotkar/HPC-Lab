@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <omp.h>
 
-#define NUM_POINTS 10000000  // Number of random points
+#define NUM_POINTS 10000000  
 
 int main() {
     int i, count = 0;
@@ -10,12 +10,11 @@ int main() {
     double pi;
     double start_time, end_time;
 
-    // Timing the parallel computation
     start_time = omp_get_wtime();
 
     #pragma omp parallel private(x, y) shared(count)
     {
-        unsigned int seed = omp_get_thread_num();  // Seed for random number generator
+        unsigned int seed = omp_get_thread_num();  
 
         #pragma omp for reduction(+:count)
         for (i = 0; i < NUM_POINTS; i++) {
